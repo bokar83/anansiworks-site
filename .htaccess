@@ -1,0 +1,13 @@
+Options -Indexes
+DirectorySlash Off
+RewriteEngine On
+
+# Clean-URL rule (depth-agnostic)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Force revalidation of HTML so future fixes propagate immediately
+<FilesMatch "\.(html|htm)$">
+  Header set Cache-Control "no-cache, must-revalidate, max-age=0"
+</FilesMatch>

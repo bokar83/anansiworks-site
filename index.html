@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Anansi Works ,  Digital Content Studio</title>
+<meta name="description" content="Anansi Works is a digital content studio. We produce short-form video and multi-platform stories for the modern feed." />
+<meta name="theme-color" content="#0b0b0e" />
+<link rel="canonical" href="https://anansiworks.com/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Anansi Works ,  Digital Content Studio" />
+<meta property="og:description" content="A digital content studio. Short-form video and multi-platform stories for the modern feed." />
+<meta property="og:url" content="https://anansiworks.com/" />
+<meta property="og:image" content="https://anansiworks.com/og-image.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Anansi Works ,  Digital Content Studio" />
+<meta name="twitter:description" content="A digital content studio. Short-form video and multi-platform stories for the modern feed." />
+<meta name="twitter:image" content="https://anansiworks.com/og-image.jpg" />
+
+<!-- Favicon: woven-thread mark, inline SVG -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0b0e'/%3E%3Cg fill='none' stroke='%23c9a24b' stroke-width='1.4'%3E%3Cpath d='M16 5 L16 27 M5 16 L27 16 M8 8 L24 24 M24 8 L8 24'/%3E%3Cpath d='M16 9 A7 7 0 0 1 23 16 M16 9 A7 7 0 0 0 9 16 M16 23 A7 7 0 0 1 9 16 M16 23 A7 7 0 0 0 23 16'/%3E%3C/g%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Spectral:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+
+<!-- Schema.org: generic Organization, no person, no location -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Anansi Works",
+  "url": "https://anansiworks.com",
+  "description": "A digital content studio producing short-form video and multi-platform stories.",
+  "email": "hub@anansiworks.com"
+}
+</script>
+
+<style>
+  :root {
+    --ink:      #0b0b0e;
+    --ink-2:    #111116;
+    --silk:     #c9a24b;
+    --silk-dim: rgba(201,162,75,.55);
+    --bone:     #ece7dd;
+    --bone-dim: rgba(236,231,221,.52);
+    --bone-faint: rgba(236,231,221,.28);
+    --hair:     rgba(236,231,221,.08);
+    --f-disp:   'Bricolage Grotesque', sans-serif;
+    --f-body:   'Spectral', Georgia, serif;
+    --ease:     cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--ink); scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: var(--f-body);
+    background: var(--ink);
+    color: var(--bone);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--silk); color: var(--ink); }
+
+  #web {
+    position: fixed; inset: 0; z-index: 0;
+    pointer-events: none;
+    opacity: 0; transition: opacity 1.6s var(--ease);
+  }
+  #web.lit { opacity: 1; }
+
+  .grain {
+    position: fixed; inset: 0; z-index: 1; pointer-events: none;
+    opacity: .035; mix-blend-mode: screen;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .vignette {
+    position: fixed; inset: 0; z-index: 1; pointer-events: none;
+    background: radial-gradient(120% 90% at 50% 28%, transparent 40%, rgba(11,11,14,.7) 100%);
+  }
+
+  .shell { position: relative; z-index: 2; }
+
+  header {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: clamp(22px, 4vw, 40px) clamp(22px, 6vw, 72px);
+  }
+  .mark {
+    display: flex; align-items: center; gap: 12px;
+    font-family: var(--f-disp); font-weight: 800;
+    font-size: 1.02rem; letter-spacing: -.01em; color: var(--bone);
+  }
+  .mark svg { width: 26px; height: 26px; display: block; flex: none; }
+  .mark .silk-stroke { stroke: var(--silk); }
+  .header-tag {
+    font-family: var(--f-disp); font-weight: 600;
+    font-size: .66rem; letter-spacing: .26em; text-transform: uppercase;
+    color: var(--bone-faint);
+  }
+  @media (max-width: 620px) { .header-tag { display: none; } }
+
+  .hero {
+    position: relative; min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: clamp(96px, 16vh, 180px) clamp(22px, 6vw, 72px) clamp(40px, 8vh, 80px);
+    max-width: 1500px; margin: 0 auto;
+  }
+  .eyebrow {
+    font-family: var(--f-disp); font-weight: 600;
+    font-size: clamp(.66rem, 1.4vw, .76rem); letter-spacing: .28em;
+    text-transform: uppercase; color: var(--silk);
+    display: inline-flex; align-items: center; gap: 14px;
+    margin-bottom: clamp(22px, 4vh, 34px);
+  }
+  .eyebrow::before { content: ''; width: 38px; height: 1px; background: var(--silk-dim); }
+
+  .hero h1 {
+    font-family: var(--f-disp); font-weight: 800;
+    font-size: clamp(2.9rem, 9.2vw, 8.4rem);
+    line-height: .96; letter-spacing: -.035em;
+    max-width: 14ch; color: var(--bone);
+  }
+  .hero h1 .weave { color: var(--silk); font-style: normal; }
+
+  .word { display: inline-block; }
+  .js-ready .ch { display: inline-block; transform: translateY(1.05em); opacity: 0; }
+  .js-ready .ch.in { transform: translateY(0); opacity: 1;
+    transition: transform .9s var(--ease), opacity .9s var(--ease); }
+
+  .hero-sub {
+    margin-top: clamp(30px, 5vh, 46px);
+    font-family: var(--f-body); font-weight: 300;
+    font-size: clamp(1.04rem, 2.1vw, 1.34rem);
+    line-height: 1.62; color: var(--bone-dim);
+    max-width: 46ch;
+  }
+
+  .scroll-cue {
+    margin-top: clamp(44px, 8vh, 76px);
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: var(--f-disp); font-weight: 600;
+    font-size: .64rem; letter-spacing: .24em; text-transform: uppercase;
+    color: var(--bone-faint);
+  }
+  .scroll-cue svg { width: 16px; height: 16px; animation: drift 2.4s var(--ease) infinite; }
+  @keyframes drift { 0%,100% { transform: translateY(0); opacity: .5; } 50% { transform: translateY(5px); opacity: 1; } }
+
+  section.block {
+    position: relative;
+    padding: clamp(80px, 14vh, 160px) clamp(22px, 6vw, 72px);
+    max-width: 1500px; margin: 0 auto;
+  }
+  .label {
+    font-family: var(--f-disp); font-weight: 600;
+    font-size: .68rem; letter-spacing: .26em; text-transform: uppercase;
+    color: var(--silk); margin-bottom: clamp(34px, 6vh, 56px);
+    display: flex; align-items: baseline; gap: 16px;
+  }
+  .label .idx { color: var(--bone-faint); font-variant-numeric: tabular-nums; }
+
+  .weave-list { list-style: none; }
+  .weave-list li {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    gap: 6px;
+    padding: clamp(26px, 4vh, 40px) 0;
+    border-top: 1px solid var(--hair);
+  }
+  .weave-list li:last-child { border-bottom: 1px solid var(--hair); }
+  @media (min-width: 820px) {
+    .weave-list li {
+      grid-template-columns: 5.2rem minmax(0, 22ch) 1fr;
+      gap: clamp(20px, 4vw, 60px);
+      align-items: baseline;
+    }
+  }
+  .weave-list .num {
+    font-family: var(--f-disp); font-weight: 600;
+    font-size: .82rem; letter-spacing: .08em; color: var(--silk-dim);
+    font-variant-numeric: tabular-nums;
+  }
+  .weave-list h3 {
+    font-family: var(--f-disp); font-weight: 600;
+    font-size: clamp(1.5rem, 3.4vw, 2.3rem); letter-spacing: -.02em;
+    line-height: 1.05; color: var(--bone);
+  }
+  .weave-list p {
+    font-family: var(--f-body); font-weight: 300;
+    font-size: clamp(1rem, 1.7vw, 1.12rem); line-height: 1.6;
+    color: var(--bone-dim); max-width: 52ch;
+  }
+  .weave-list li::after {
+    content: ''; position: absolute; left: 0; top: -1px;
+    width: 0; height: 1px; background: var(--silk);
+    transition: width .6s var(--ease);
+  }
+  @media (hover: hover) { .weave-list li:hover::after { width: 100%; } }
+  .weave-list li:hover h3 { color: var(--silk); transition: color .3s var(--ease); }
+
+  .statement {
+    font-family: var(--f-disp); font-weight: 400;
+    font-size: clamp(1.7rem, 4.4vw, 3.4rem);
+    line-height: 1.18; letter-spacing: -.02em;
+    color: var(--bone); max-width: 22ch;
+  }
+  .statement .weave { color: var(--silk); }
+  .statement + p {
+    margin-top: clamp(30px, 5vh, 44px);
+    font-family: var(--f-body); font-weight: 300;
+    font-size: clamp(1.04rem, 1.9vw, 1.22rem); line-height: 1.66;
+    color: var(--bone-dim); max-width: 54ch;
+  }
+
+  .contact { text-align: center; }
+  .contact .label { justify-content: center; }
+  .contact h2 {
+    font-family: var(--f-disp); font-weight: 800;
+    font-size: clamp(2.2rem, 7vw, 5rem); line-height: 1; letter-spacing: -.03em;
+    color: var(--bone); margin-bottom: clamp(28px, 5vh, 44px);
+  }
+  .mailto {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-family: var(--f-disp); font-weight: 600;
+    font-size: clamp(1.1rem, 3vw, 1.7rem); letter-spacing: -.01em;
+    color: var(--silk); padding: 14px 6px;
+    transition: gap .4s var(--ease);
+    cursor: pointer;
+  }
+  .mailto svg { width: clamp(20px,3vw,26px); height: clamp(20px,3vw,26px); transition: transform .4s var(--ease); }
+  .mailto:hover { gap: 22px; }
+  .mailto:hover svg { transform: translateX(4px); }
+  .mailto:focus-visible { outline: 2px solid var(--silk); outline-offset: 8px; border-radius: 4px; }
+  .contact-note {
+    margin-top: clamp(26px, 4vh, 38px);
+    font-family: var(--f-body); font-weight: 300; font-size: 1rem;
+    color: var(--bone-faint);
+  }
+
+  footer {
+    position: relative;
+    padding: clamp(40px, 7vh, 64px) clamp(22px, 6vw, 72px);
+    max-width: 1500px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; gap: 16px 28px;
+    align-items: center; justify-content: space-between;
+    font-family: var(--f-disp); font-weight: 600;
+    font-size: .66rem; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--bone-faint);
+  }
+  footer .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--silk-dim); display: inline-block; vertical-align: middle; margin: 0 9px; }
+
+  .reveal { opacity: 0; transform: translateY(28px); }
+  .js-ready .reveal { will-change: opacity, transform; }
+  .reveal.in { opacity: 1; transform: none; transition: opacity 1s var(--ease), transform 1s var(--ease); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js-ready .ch, .reveal { transform: none !important; opacity: 1 !important; transition: none !important; }
+    #web { transition: none; }
+    .scroll-cue svg { animation: none; }
+  }
+</style>
+</head>
+<body>
+<canvas id="web" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<div class="shell">
+  <header>
+    <a class="mark" href="#top" aria-label="Anansi Works home">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <g class="silk-stroke" stroke-width="1.3" stroke-linecap="round">
+          <path d="M16 4 L16 28 M4 16 L28 16 M8 8 L24 24 M24 8 L8 24"/>
+          <path d="M16 9 A7 7 0 0 1 23 16 M16 9 A7 7 0 0 0 9 16 M16 23 A7 7 0 0 1 9 16 M16 23 A7 7 0 0 0 23 16"/>
+        </g>
+      </svg>
+      Anansi Works
+    </a>
+    <span class="header-tag">Digital Content Studio</span>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <span class="eyebrow">Digital Content Studio</span>
+      <h1 data-split>We weave <em class="weave">stories</em> for the modern feed.</h1>
+      <p class="hero-sub">
+        Anansi Works is a small content studio. We make short-form video and
+        multi-platform stories built to travel, fast, native, and made for the
+        way people actually watch now.
+      </p>
+      <span class="scroll-cue">
+        Scroll
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+      </span>
+    </section>
+
+    <section class="block">
+      <p class="label reveal"><span class="idx">01</span> What we make</p>
+      <ul class="weave-list">
+        <li class="reveal">
+          <span class="num">/ 01</span>
+          <h3>Short-form video</h3>
+          <p>Vertical-first edits cut for retention, from raw idea to scroll-stopping final frame. Built for the platforms where attention lives.</p>
+        </li>
+        <li class="reveal">
+          <span class="num">/ 02</span>
+          <h3>Content production</h3>
+          <p>End-to-end production handled in-house: concept, script, edit, sound, and finish. One studio, one through-line, a consistent voice across every piece.</p>
+        </li>
+        <li class="reveal">
+          <span class="num">/ 03</span>
+          <h3>Multi-platform stories</h3>
+          <p>One story, woven across the feed. We adapt each piece to where it lands so a single idea shows up native on every surface it touches.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <p class="label reveal"><span class="idx">02</span> How we work</p>
+      <p class="statement reveal">A story is a <span class="weave">thread</span>. Our job is to weave it so it holds.</p>
+      <p class="reveal">
+        We keep the studio small and the output sharp. Every piece earns its place
+        in the feed on its own, then connects back to the larger story. Quiet on
+        the surface, deliberate underneath, the way a good web is built.
+      </p>
+    </section>
+
+    <section class="block contact">
+      <p class="label reveal"><span class="idx">03</span> Say hello</p>
+      <h2 class="reveal">Let's make something.</h2>
+      <a class="mailto reveal" href="mailto:hub@anansiworks.com">
+        hub@anansiworks.com
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <p class="contact-note reveal">For everything else, write to inbox@anansiworks.com</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>Anansi Works</span>
+    <span>Digital Content Studio <span class="dot"></span> Made for the feed</span>
+    <span>&copy; <span id="yr">2026</span></span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  root.classList.add('js-ready');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  var h1 = document.querySelector('[data-split]');
+  if (h1 && !reduce) {
+    var wrapChars = function (node) {
+      var out = document.createDocumentFragment();
+      node.textContent.split(/(\s+)/).forEach(function (token) {
+        if (token.trim() === '') { out.appendChild(document.createTextNode(token)); return; }
+        var word = document.createElement('span'); word.className = 'word';
+        token.split('').forEach(function (c) {
+          var ch = document.createElement('span'); ch.className = 'ch'; ch.textContent = c;
+          word.appendChild(ch);
+        });
+        out.appendChild(word);
+      });
+      node.parentNode.replaceChild(out, node);
+    };
+    var walk = function (el) {
+      Array.prototype.slice.call(el.childNodes).forEach(function (n) {
+        if (n.nodeType === 3 && n.textContent.trim()) wrapChars(n);
+        else if (n.nodeType === 1) walk(n);
+      });
+    };
+    walk(h1);
+    var chars = h1.querySelectorAll('.ch');
+    chars.forEach(function (ch, i) {
+      setTimeout(function () { ch.classList.add('in'); }, 200 + i * 26);
+    });
+  } else if (h1) {
+    h1.querySelectorAll('.ch').forEach(function (c) { c.classList.add('in'); });
+  }
+
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+    // safety net: never leave content hidden if IO misfires
+    setTimeout(function () {
+      document.querySelectorAll('.reveal:not(.in)').forEach(function (el) { el.classList.add('in'); });
+    }, 2600);
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+  }
+
+  var canvas = document.getElementById('web');
+  var ctx = canvas.getContext('2d');
+  var nodes = [], W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 2);
+  var mouse = { x: -9999, y: -9999 };
+  var SILK = '201,162,75';
+
+  function size() {
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W * DPR; canvas.height = H * DPR;
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    build();
+  }
+  function build() {
+    var density = Math.max(26, Math.min(64, Math.round((W * H) / 26000)));
+    nodes = [];
+    for (var i = 0; i < density; i++) {
+      nodes.push({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.18, vy: (Math.random() - 0.5) * 0.18,
+        r: Math.random() * 1.4 + 0.6
+      });
+    }
+  }
+  function frame() {
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > W) n.vx *= -1;
+      if (n.y < 0 || n.y > H) n.vy *= -1;
+      var dxm = mouse.x - n.x, dym = mouse.y - n.y;
+      var dm = Math.sqrt(dxm * dxm + dym * dym);
+      if (dm < 170 && dm > 0) { n.x += (dxm / dm) * 0.5; n.y += (dym / dm) * 0.5; }
+    }
+    for (var a = 0; a < nodes.length; a++) {
+      for (var b = a + 1; b < nodes.length; b++) {
+        var dx = nodes[a].x - nodes[b].x, dy = nodes[a].y - nodes[b].y;
+        var d = Math.sqrt(dx * dx + dy * dy);
+        if (d < 132) {
+          var o = (1 - d / 132) * 0.26;
+          ctx.strokeStyle = 'rgba(' + SILK + ',' + o + ')';
+          ctx.lineWidth = 0.6;
+          ctx.beginPath(); ctx.moveTo(nodes[a].x, nodes[a].y); ctx.lineTo(nodes[b].x, nodes[b].y); ctx.stroke();
+        }
+      }
+    }
+    for (var k = 0; k < nodes.length; k++) {
+      var nd = nodes[k];
+      var near = Math.hypot(mouse.x - nd.x, mouse.y - nd.y) < 170;
+      ctx.fillStyle = 'rgba(' + SILK + ',' + (near ? 0.85 : 0.4) + ')';
+      ctx.beginPath(); ctx.arc(nd.x, nd.y, nd.r, 0, Math.PI * 2); ctx.fill();
+    }
+    requestAnimationFrame(frame);
+  }
+
+  if (!reduce) {
+    window.addEventListener('mousemove', function (e) { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
+    window.addEventListener('mouseleave', function () { mouse.x = -9999; mouse.y = -9999; });
+    window.addEventListener('resize', size);
+    size();
+    requestAnimationFrame(frame);
+    requestAnimationFrame(function () { canvas.classList.add('lit'); });
+  } else {
+    size();
+    ctx.clearRect(0, 0, W, H);
+    for (var s = 0; s < nodes.length; s++) {
+      var sn = nodes[s];
+      ctx.fillStyle = 'rgba(' + SILK + ',0.4)';
+      ctx.beginPath(); ctx.arc(sn.x, sn.y, sn.r, 0, Math.PI * 2); ctx.fill();
+    }
+    canvas.classList.add('lit');
+  }
+})();
+</script>
+</body>
+</html>
